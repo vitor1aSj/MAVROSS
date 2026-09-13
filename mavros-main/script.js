@@ -29,7 +29,7 @@ if (iconClose) {
     });
 }
 
-// Adiciona o efeito de flash suave e elegante ao clicar no botão de desbloqueio/câmera
+//  efeito de flash 
 if (btnDesblock) {
     btnDesblock.addEventListener('click', () => {
         // Cria o elemento do flash dinamicamente caso não exista no HTML
@@ -40,10 +40,10 @@ if (btnDesblock) {
             document.body.appendChild(flash);
         }
 
-        // Ativa a animação do flash
+        //  animação do flash
         flash.classList.add('active-flash');
 
-        // Remove a classe após a animação para poder repetir depois
+      
         setTimeout(() => {
             flash.classList.remove('active-flash');
         }, 400);
@@ -117,7 +117,7 @@ if (btnExpedicao) {
         // Ativa o clarão do flash
         flash.classList.add('active-flash');
 
-        // Espera a animação do flash acontecer (350 milissegundos) e então muda de página
+        // Espera a animação do flash acontecer  e  muda de página
         setTimeout(() => {
             window.location.href = 'expedicao.html';
         }, 350);

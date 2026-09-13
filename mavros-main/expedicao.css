@@ -58,7 +58,7 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* Área Principal */
+/* rea Principal */
 .container-apresentacao {
     padding: 180px 80px 80px 80px;
     text-align: center;
@@ -125,27 +125,24 @@ body {
 .card-foto:hover::after {
     opacity: 0.3;
 }
-/* Oculta o título de introdução na página de expedição, se desejar */
 .conteudo-intro {
     display: none;
 }
-/* Posiciona o vídeo de forma fixa cobrindo toda a tela ao fundo */
 .video-fundo {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    object-fit: cover; /* Faz o vídeo preencher todo o espaço sem distorcer as proporções */
-    z-index: -2; /* Joga o vídeo completamente para trás */
+    object-fit: cover; /* vídeo preencher todo o espaço sem distorcer as proporções */
+    z-index: -2; 
 }
 
-/* Cria uma película escura translúcida entre o vídeo e os textos para garantir a leitura */
+
 body::after {
     content: '';
     position: fixed;
     inset: 0;
-    background: rgba(3, 3, 3, 0.75); /* Controla o quão escuro o fundo fica (0.75 é bem escuro) */
+    background: rgba(3, 3, 3, 0.75); 
     z-index: -1; 
-    pointer-events: none; /* Permite clicar nos botões e cards normalmente através da película */
-}
+    pointer-events: none; }
