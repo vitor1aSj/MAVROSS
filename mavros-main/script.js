@@ -5,21 +5,29 @@ const btnPopup = document.querySelector('.btnLogin-popup');
 const iconClose = document.querySelector('.icon-close');
 const btnDesblock = document.querySelector('.btn-desblock');
 
-registerLink.addEventListener('click', ()=> {
-    wrapper.classList.add('active');
-});
+if (registerLink) {
+    registerLink.addEventListener('click', ()=> {
+        wrapper.classList.add('active');
+    });
+}
 
-loginLink.addEventListener('click', ()=> {
-    wrapper.classList.remove('active');
-});
+if (loginLink) {
+    loginLink.addEventListener('click', ()=> {
+        wrapper.classList.remove('active');
+    });
+}
 
-btnPopup.addEventListener('click', ()=> {
-    wrapper.classList.add('active-popup');
-});
+if (btnPopup) {
+    btnPopup.addEventListener('click', ()=> {
+        wrapper.classList.add('active-popup');
+    });
+}
 
-iconClose.addEventListener('click', ()=> {
-    wrapper.classList.remove('active-popup');
-});
+if (iconClose) {
+    iconClose.addEventListener('click', ()=> {
+        wrapper.classList.remove('active-popup');
+    });
+}
 
 // Adiciona o efeito de flash suave e elegante ao clicar no botão de desbloqueio/câmera
 if (btnDesblock) {
@@ -72,7 +80,6 @@ if (form) {
         form.reset(); // Limpa o formulário
     });
 }
-
 const menuToggle = document.getElementById('menu-toggle');
 const navigation = document.querySelector('.navigation');
 
@@ -81,12 +88,38 @@ if (menuToggle && navigation) {
         menuToggle.classList.toggle('active');
         navigation.classList.toggle('active-menu');
     });
+}
 
-    // Fecha o menu automaticamente se clicar em alguma opção
-    navigation.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navigation.classList.remove('active-menu');
-        });
+// Força o redirecionamento absoluto para a página de apresentação
+const linkApresentacao = document.querySelector('.navigation a[href="apresentacao.html"]');
+if (linkApresentacao) {
+    linkApresentacao.addEventListener('click', (e) => {
+        e.preventDefault(); // Impede qualquer bloqueio do navegador
+        window.location.href = 'apresentacao.html';
+    });
+}
+
+// Dispara o flash primeiro e redireciona para a Expedição em seguida
+const btnExpedicao = document.getElementById('btn-expedicao');
+
+if (btnExpedicao) {
+    btnExpedicao.addEventListener('click', (e) => {
+        e.preventDefault(); // Impede a abertura instantânea
+
+        // Pega ou cria o elemento de flash
+        let flash = document.querySelector('.camera-flash');
+        if (!flash) {
+            flash = document.createElement('div');
+            flash.className = 'camera-flash';
+            document.body.appendChild(flash);
+        }
+
+        // Ativa o clarão do flash
+        flash.classList.add('active-flash');
+
+        // Espera a animação do flash acontecer (350 milissegundos) e então muda de página
+        setTimeout(() => {
+            window.location.href = 'expedicao.html';
+        }, 350);
     });
 }

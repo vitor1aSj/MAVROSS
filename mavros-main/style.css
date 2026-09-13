@@ -53,8 +53,7 @@ header {
     z-index: 99;
 }
 
-/* --- LOGO MAVROS: CONCEITO REVOLUCIONÁRIO ÓTICO-CINEMATOGRÁFICO --- */
-/* --- LOGO MAVROS INTEGRADO COM LINHA DINÂMICA NO HOVER --- */
+/* --- LOGO MAVROS INTEGRADA COM LINHA DINÂMICA NO HOVER --- */
 .logo {
     font-family: 'Cinzel', serif;
     font-size: 2.2em;
@@ -69,16 +68,12 @@ header {
     background: transparent;
     border: none;
     box-shadow: none;
-    padding: 0 0 6px 0; /* Espaço inferior reservado para a linha respirar */
-    
-    /* Brilho elegante integrado ao fundo escuro */
+    padding: 0 0 6px 0;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
                  0 0 40px rgba(255, 255, 255, 0.1);
-                 
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Linha fluida e luminosa que aparece embaixo de ponta a ponta ao passar o mouse */
 .logo::after {
     content: '';
     position: absolute;
@@ -95,7 +90,7 @@ header {
 }
 
 .logo:hover {
-    letter-spacing: 12px; /* Letras se expandem majestosamente */
+    letter-spacing: 12px;
     color: #ffffff;
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 
                  0 0 50px rgba(255, 255, 255, 0.4),
@@ -104,23 +99,8 @@ header {
 }
 
 .logo:hover::after {
-    transform: scaleX(1); /* A linha desabrocha e cobre toda a extensão da logo */
+    transform: scaleX(1);
     opacity: 1;
-}
-
-@keyframes mavrosLogoInimigavel {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-        letter-spacing: 10px;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.2);
-    }
-    50% {
-        transform: translateY(-3px) scale(1.02);
-        letter-spacing: 13px;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 
-                     0 0 50px rgba(255, 255, 255, 0.5),
-                     0 0 90px rgba(255, 255, 255, 0.3);
-    }
 }
 
 /* --- ESTILO DO MENU HAMBÚRGUER --- */
@@ -163,7 +143,7 @@ header {
     transform: translateY(-10.5px) rotate(-45deg);
 }
 
-/* Painel Lateral "Cabuloso" (Vidro Fosco Pesado) */
+/* Painel Lateral */
 .navigation {
     position: fixed;
     top: 0;
@@ -228,7 +208,6 @@ header {
     transform: scaleX(1);
 }
 
-/* Cascata dos links do menu */
 .navigation.active-menu a:nth-child(1) { transition-delay: 0.15s; }
 .navigation.active-menu a:nth-child(2) { transition-delay: 0.22s; }
 .navigation.active-menu a:nth-child(3) { transition-delay: 0.29s; }
@@ -268,25 +247,88 @@ header {
     transform: scale(1.06);
 }
 
-/* Wrapper do Popup */
+/* --- WRAPPER DE LOGIN / REGISTRO: NEGATIVO DE FILME CINEMATOGRÁFICO ULTRA CABULOSO --- */
 .wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 400px;
-    height: 440px;
-    background: rgba(0, 0, 0, 0.75);
-    border: 2px solid rgba(255, 255, 255, .5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, .8);
+    width: 440px;
+    height: 500px;
+    background: radial-gradient(circle at center, #141414 0%, #080808 100%);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.95),
+                0 0 35px rgba(255, 255, 255, 0.1),
+                inset 0 0 40px rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: transform .5s ease, height .2s ease;
+    transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275), height .4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1000;
+}
+
+/* Brilho pulsante sutil nas bordas do negativo */
+.wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.4), transparent, rgba(255,255,255,0.2), transparent);
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: pulsoBorda 4s ease-in-out infinite;
+}
+
+@keyframes pulsoBorda {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.002); }
+}
+
+/* Perfuração Superior (Sprocket Hole Top) */
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background-color: #000000;
+    z-index: 10;
+    background-image: repeating-linear-gradient(
+        90deg,
+        #ffffff 0px,
+        #ffffff 12px,
+        rgba(255,255,255,0.2) 12px,
+        transparent 26px
+    );
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.9);
+}
+
+/* Perfuração Inferior (Sprocket Hole Bottom) */
+.wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background-color: #000000;
+    z-index: 10;
+    background-image: repeating-linear-gradient(
+        90deg,
+        #ffffff 0px,
+        #ffffff 12px,
+        rgba(255,255,255,0.2) 12px,
+        transparent 26px
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.9);
 }
 
 .wrapper.active-popup {
@@ -294,64 +336,103 @@ header {
 }
 
 .wrapper.active {
-    height: 520px;
+    height: 590px;
 }
 
 .wrapper .form-box {
     width: 100%;
-    padding: 40px;
+    padding: 35px 45px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Varredura de luz cinematográfica cruzando o filme ao abrir */
+.wrapper .form-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+    );
+    transform: rotate(30deg);
+    pointer-events: none;
+    animation: luzProjetor 5s ease-in-out infinite;
+}
+
+@keyframes luzProjetor {
+    0% { left: -150%; opacity: 0; }
+    30% { left: 150%; opacity: 1; }
+    100% { left: 150%; opacity: 0; }
 }
 
 .wrapper .form-box.login {
-    transition: transform .18s ease;
+    transition: transform .3s ease;
     transform: translateX(0);
 }
 
 .wrapper.active .form-box.login {
     transition: none;
-    transform: translateX(-400px);
+    transform: translateX(-440px);
 }
 
 .wrapper .form-box.register {
     position: absolute;
     transition: none;
-    transform: translateX(400px);
+    transform: translateX(440px);
 }
 
 .wrapper.active .form-box.register {
-    transition: transform .18s ease;
+    transition: transform .3s ease;
     transform: translateX(0);
 }
 
 .wrapper .icon-close {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 45px;
-    background: #ffffff;
-    font-size: 2em;
-    color: #000000;
+    top: 22px;
+    right: 18px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.2em;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom-left-radius: 20px;
+    border-radius: 50%;
     cursor: pointer;
-    z-index: 1;
+    z-index: 20;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wrapper .icon-close:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 .form-box h2 {
     font-size: 2em;
     color: #ffffff;
     text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 .input-box {
     position: relative;
     width: 100%;
     height: 50px;
-    border-bottom: 2px solid #ffffff;
-    margin: 30px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    margin: 25px 0;
 }
 
 .input-box label {
@@ -369,6 +450,8 @@ header {
 .input-box input:focus~label,
 .input-box input:valid~label {
     top: -5px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
 .input-box input {
@@ -395,7 +478,7 @@ header {
     font-size: .9em;
     color: #fdfdfd;
     font-weight: 500;
-    margin: -15px 0 15px;
+    margin: -10px 0 15px;
     display: flex;
     justify-content: space-between;
 }
@@ -425,11 +508,16 @@ header {
     font-size: 1em;
     color: #000;
     font-weight: 600;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
     transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
 .btn:hover {
-    background: #d4d4d4;
+    background: #e0e0e0;
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    transform: translateY(-2px);
 }
 
 .login-register {
@@ -437,7 +525,7 @@ header {
     color: #ffffff;
     text-align: center;
     font-weight: 500;
-    margin: 25px 0 10px;
+    margin: 20px 0 5px;
 }
 
 .login-register p a {
@@ -606,4 +694,9 @@ header {
         transform: scale(1.06);
         filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
     }
+}
+.btn-desblock {
+    position: absolute;
+    z-index: 999; /* Joga o botão para a camada mais alta da tela */
+    cursor: pointer;
 }
